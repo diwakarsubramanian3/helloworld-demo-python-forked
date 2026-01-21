@@ -7,7 +7,7 @@ jobs:
       - name: Code Checkout
         uses: actions/checkout@v6
       - name: Build Image
-        run: docker build -t ${{ vars.DOCKER_USERNAME }}/helloworld-demo-python-forked:v2
+        run: docker build -t ${{ vars.DOCKER_USERNAME }}/helloworld-demo-python-forked:v2 .
       - name: Verify Image
         run: docker images
       - name: Docker Login
@@ -15,6 +15,8 @@ jobs:
         with:
           username: ${{ vars.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
+      - name: Push Image
+        run: docker push ${{ vars.DOCKER_USERNAME }}/helloworld-demo-python-forked:v2
    
           
        
