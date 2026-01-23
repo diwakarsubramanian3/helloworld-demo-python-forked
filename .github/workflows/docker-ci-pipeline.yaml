@@ -54,12 +54,10 @@ jobs:
            kubectl get ns
            kubectl get deploy,service -n hello-world
            
-        - name: test service URLs  
-          run: |
-            minikube service list
-            minikube service my-service --url
-            echo -n "------------------opening the service------------------"
-            curl $(minikube service my-service --url)
-          
-       
+       - name: test service URLs  
+         run: |
+           minikube service list
+           minikube service my-service --url
+           echo -n "------------------opening the service------------------"
+           curl $(minikube service my-service --url)
       
