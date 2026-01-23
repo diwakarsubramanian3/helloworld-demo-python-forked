@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: helloworld-deployment
-  namsepace: diwakar
   labels:
     app: hello-world
+    name: diwakar
 spec:
   replicas: 7
   selector:
@@ -14,7 +14,6 @@ spec:
     metadata:
       labels:
         app: hello-world
-        name: hello-world
     spec:
       containers:
       - name: hello-world-container
