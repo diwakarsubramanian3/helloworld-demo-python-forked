@@ -6,7 +6,7 @@ on:
       - 'CONTRIBUTING.md'
       - 'LICENSE'
 jobs:
-dockerci-job:
+  dockerci-job:
     runs-on: ubuntu-latest
     steps:
       - name: Code Checkout
@@ -32,11 +32,12 @@ dockerci-job:
         run: docker push ${{ vars.DOCKER_USERNAME }}/helloworld-demo-python-forked:v2
       - name: container cleanup
         run: docker rm -f python-app
+  
         
- k8scd-job:
-    needs: [dockerci-job]
+  k8scd-job:
+     needs: [dockerci-job]
      runs-on: ubuntu-latest
-    steps:
+     steps:
        - name: Code Checkout
          uses: actions/checkout@v6
        - name: start minikube 
@@ -52,8 +53,8 @@ dockerci-job:
          run: |
            kubectl get ns
            kubectl get deploy,service -n hello-world
-           name: Test service URLs
-        - name: Test serice URLs  
+           
+        - name: test service URLs  
           run: |
             minikube service list
             minikube service my-service --url
