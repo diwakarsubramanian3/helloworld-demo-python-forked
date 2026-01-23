@@ -1,1 +1,4 @@
-.k8s
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: hello-world
