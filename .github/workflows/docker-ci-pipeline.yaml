@@ -47,12 +47,11 @@ jobs:
        - name: apply yaml files
          run: |
               kubectl apply -f k8s/.
-              kubectl config set-context --current --namespace=hello-world
               kubectl wait --for=condition=ready pod -l app=hello-world
        - name: check the resources
          run: |
            kubectl get ns
-           kubectl get deploy,service -n hello-world
+           kubectl get deploy,service
            
        - name: test service URLs  
          run: |
