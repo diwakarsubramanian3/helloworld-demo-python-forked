@@ -4,6 +4,7 @@ metadata:
   name: helloworld-deployment
   labels:
     app: hello-world
+    name: diwakar
 spec:
   replicas: 7
   selector:
@@ -19,4 +20,3 @@ spec:
         image: diwakar3394/helloworld-demo-python-forked:v2
         ports:
         - containerPort: 8080
-
