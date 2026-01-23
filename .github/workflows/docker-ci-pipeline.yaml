@@ -33,7 +33,7 @@ dockerci-job:
       - name: container cleanup
         run: docker rm -f python-app
         
-k8scd-job:
+ k8scd-job:
     needs: [dockerci-job]
      runs-on: ubuntu-latest
     steps:
