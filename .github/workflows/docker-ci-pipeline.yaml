@@ -36,7 +36,7 @@ dockerci-job:
 k8scd-job:
      needs: [dockerci-job]
      runs-on: ubuntu-latest
-     steps:
+    steps:
        - name: Code Checkout
          uses: actions/checkout@v6
        - name: start minikube 
